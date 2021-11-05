@@ -1,10 +1,62 @@
+import { Container, Grid, Typography } from '@mui/material';
 import React from 'react';
+import Booking from '../Booking/Booking';
 
-const AvailableAppointment = () => {
+const bookings =[
+    {
+        id: 1,
+        name: 'Teeth Orthodonice',
+        time: '09.00 AM - 11.00 AM',
+        space: 10,
+    },
+    {
+        id: 2,
+        name: 'Cosmetic Dentisty',
+        time: '06.00 AM - 07.00 AM',
+        space: 10,
+    },
+    {
+        id: 3,
+        name: 'Teeth Clening',
+        time: '06.00 AM - 07.00 AM',
+        space: 10,
+    },
+    {
+        id: 4,
+        name: 'Teeth Orthodonice',
+        time: '06.00 AM - 04.00 AM',
+        space: 10,
+    },
+    {
+        id: 5,
+        name: 'Teeth Orthodonice',
+        time: '06.00 AM - 02.00 AM',
+        space: 10,
+    },
+    {
+        id:6 ,
+        name: 'Teeth Orthodonice',
+        time: '07.00 AM - 05.00 AM',
+        space: 10,
+    }
+]
+
+
+const AvailableAppointment = ({date}) => {
     return (
-        <div>
-            <h2>AvailableAppointment</h2>
-        </div>
+        <Container>
+            <Typography variant="h4"  sx={{ color: 'info.main' }}>AvailableAppointment {date.toDateString()}</Typography>
+            <Grid container spacing={2}>
+             {
+                 bookings.map(booking =><Booking
+                 key={booking.id}
+                 booking={booking}
+                 date={date}
+                 
+                 ></Booking>)
+             }
+         </Grid>
+        </Container>
     );
 };
 
